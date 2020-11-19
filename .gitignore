@@ -15,7 +15,6 @@ target/
 ## Metals
 .metals/
 project/metals.sbt
-project/project/
 .bloop/
 project/.bloop/
 
