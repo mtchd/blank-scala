@@ -1,16 +1,9 @@
-# Schema Registry
-dumps/
-
 out
 *.log
 
 # sbt specific
 dist/*
 target/
-
-## IntelliJ
-*.iml
-.idea
 
 ## Metals
 .metals/
@@ -20,6 +13,3 @@ project/.bloop/
 
 ## VScode
 .vscode/
-
-## Mac stuff
-.DS_Store
