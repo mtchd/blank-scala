@@ -1,7 +1,6 @@
 package codingtest
 
 case class Customer(personal: BigDecimal, bank: BigDecimal)
-case class AppError(message: String)
 
 object Customer {
 
