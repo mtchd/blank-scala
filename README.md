@@ -1,3 +1,13 @@
-# Hello World
+# Bank 🏧
 
-A basic scalal hello world app.
+## Tests 🧪
+
+```
+sbt test
+```
+
+## Compile 📚
+
+```
+sbt assembly
+```
