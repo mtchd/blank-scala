@@ -10,15 +10,11 @@ val specs2Version = "4.10.5"
 val circeVersion = "0.13.0"
 
 libraryDependencies ++= Seq(
-  "org.scala-lang.modules"        %% "scala-parser-combinators"       % "1.1.2",
-  "io.circe"                      %% "circe-parser"                   % circeVersion,
   "org.specs2"                    %% "specs2-core"                    % specs2Version          % Test,
-  "org.specs2"                    %% "specs2-matcher-extra"           % specs2Version          % Test,
-  "org.specs2"                    %% "specs2-scalacheck"              % specs2Version          % Test,
 )
 
 scalacOptions ++= Seq(
-  "-Xlint:-byname-implicit", // As of Scala 2.13.3 `deriveEncoder[T]` breaks
+  "-Xlint:-byname-implicit",
   "-Wdead-code",
   "-Werror",
   "-Wextra-implicit",
