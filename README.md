@@ -30,15 +30,14 @@ sbt assembly
 
 - Keeping count as each transaction is processed sounds simple at first, it's simply another operation on `deposit` and `withdraw`, plus another piece of state on the bank class. However, you also need to consider adding new customers and deleting customers. Now the class needs a custom contructor to create it, and it's another thing to remember when deleting a customer. Finally should a transaction be missed for any reason, we would become out of sync.
 
-- O(n) performance is acceptable as even if this "bank" had every person on earth with 10 accounts each, n would be around 70 billion, a process which can be completed in under 5 seconds by any modern computer, and less than 1 on my gaming computer :)
+- O(n) performance is acceptable as even if this "bank" had every person on earth with 10 accounts each, n would be around 70 billion, a process which can be completed in well under 5 seconds by any modern computer, usually less than a second.
 
 - This may no longer be acceptable were we IO or Network bound instead of CPU bound, how ever I've built this to the spec required without future-proofing.
 
-- Finally, I used `.fold(...)` instead of `map().sum()`
+- Finally, I used `.fold(...)` instead of `map().sum()` as the latter would require 2 runs through the list instead of one.
 
-### Classes vs Case Classes and Objects
-- Used case classes as it makes it easier to compare equality in the tests
-- In a unique situation like this one, case classes with functions
+### Classes vs Case Classes
+- Used case classes as it makes it easier to compare equality in the tests, as you get an equality function implemented for free.
 
 ### Either vs Option vs Try
 
