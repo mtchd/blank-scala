@@ -29,6 +29,8 @@ sbt assembly
 
 - This may no longer be acceptable were we IO or Network bound instead of CPU bound, how ever I've built this to the spec required without future-proofing.
 
+- Finally, I used `.fold(...)` instead of `map().sum()`
+
 ### Classes vs Case Classes and Objects
 - Used case classes as it makes it easier to compare equality in the tests
 - In a unique situation like this one, case classes with functions

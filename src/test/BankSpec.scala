@@ -13,6 +13,10 @@ class BankSpec extends Specification {
     "Should be a sum of all customers balances" in {
       bank.getTotal() mustEqual 300.00
     }
+
+    "Should be zero when there are no customers" in {
+      Bank(Map()).getTotal() mustEqual 0.00
+    }
   }
 
   "deposit" should {

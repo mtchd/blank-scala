@@ -1,4 +1,4 @@
-scalaVersion := "2.13.3"
+scalaVersion := "2.13.6"
 
 javaOptions += "-Duser.timezone=UTC"
 
@@ -6,11 +6,10 @@ name := "hello-world"
 organization := "ch.epfl.scala"
 version := "1.0"
 
-val specs2Version = "4.10.5"
-val circeVersion = "0.13.0"
+val specs2Version = "4.12.12"
 
 libraryDependencies ++= Seq(
-  "org.specs2"                    %% "specs2-core"                    % specs2Version          % Test,
+  "org.specs2" %% "specs2-core" % specs2Version % Test
 )
 
 scalacOptions ++= Seq(
@@ -29,30 +28,30 @@ scalacOptions ++= Seq(
   "-unchecked"
 )
 
-scalacOptions in Test ++= Seq("-Yrangepos")
+Test / scalacOptions ++= Seq("-Yrangepos")
 
-scalacOptions in Test --= Seq(
+Test / scalacOptions --= Seq(
   "-Wnumeric-widen",
   "-Wvalue-discard"
 )
 
-scalacOptions in (Compile, console) --= Seq(
+Compile / console / scalacOptions --= Seq(
   "-Werror",
   "-Wunused",
   "-Xlint"
 )
 
-scalaSource in Test := baseDirectory.value / "src" / "test"
+Test / scalaSource := baseDirectory.value / "src" / "test"
 
 fork := true
 
 testFrameworks := Seq(sbt.TestFrameworks.Specs2)
 
-assemblyOutputPath in assembly := new File("target/app.jar")
+assembly / assemblyOutputPath := new File("target/app.jar")
 
-assemblyMergeStrategy in assembly := {
+assembly / assemblyMergeStrategy := {
   case PathList("META-INF", _ @_*) => MergeStrategy.discard
   case _ => MergeStrategy.first
 }
 
-test in assembly := {}
+assembly / test := {}

@@ -13,9 +13,10 @@ case class Bank(customers: Map[String, BigDecimal]) {
     this
       .getBalance(customerId)
       .flatMap(balance => {
-        balance - withdrawAmt < 0 match {
+        val newBalance = balance - withdrawAmt
+        newBalance < 0 match {
           case true => Left(InsufficientFunds(customerId, balance))
-          case false => Right(balance - withdrawAmt)
+          case false => Right(newBalance)
         }
       })
       .map(this.updated(customerId, _))
