@@ -30,7 +30,8 @@ sbt assembly
 - This may no longer be acceptable were we IO or Network bound instead of CPU bound, how ever I've built this to the spec required without future-proofing.
 
 ### Classes vs Case Classes and Objects
-- Used case classes and companion objects instead of classes, as that's more idiomatic scala.
+- Used case classes as it makes it easier to compare equality in the tests
+- In a unique situation like this one, case classes with functions
 
 ### Either vs Option vs Try
 
@@ -39,7 +40,7 @@ Used `Either` as it lets us tell a user about what went wrong. Didn't use `Try` 
 ### Wrapping the Customers Balance in a Customer Class
 
 - Not wrapping the customers balance in a class is simple and clean
-- However, customer is highly likely to store information other than just a singular balance. Making it a class makes it extensible for that purpose.
+- However, customer is highly likely to store information other than just a singular balance. Making it a class makes it extensible for that purpose. Given the spec specifically called for "Code not needed to implement the requirements", I've chosen to leave it out.
 
 ### Using BigDecimal
 
