@@ -1,3 +1,5 @@
+package codingtest
+
 import org.specs2.mutable.Specification
 
 class MainSpec extends Specification {
