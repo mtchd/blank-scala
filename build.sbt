@@ -1,4 +1,4 @@
-scalaVersion := "2.13.6"
+scalaVersion := "2.13.8"
 
 javaOptions += "-Duser.timezone=UTC"
 
@@ -29,17 +29,6 @@ scalacOptions ++= Seq(
 )
 
 Test / scalacOptions ++= Seq("-Yrangepos")
-
-Test / scalacOptions --= Seq(
-  "-Wnumeric-widen",
-  "-Wvalue-discard"
-)
-
-Compile / console / scalacOptions --= Seq(
-  "-Werror",
-  "-Wunused",
-  "-Xlint"
-)
 
 Test / scalaSource := baseDirectory.value / "src" / "test"
 
